@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Home(),
+      home: const Home(),
     );
   }
 }
@@ -51,7 +51,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         setState(() {});
         ticker?.stop();
       } else {
-        time += 0.015;
+        time += 0.005;
         setState(() {});
       }
     });
@@ -60,13 +60,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     ticker?.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final mediaSize = MediaQuery.of(context).size;
     return Scaffold(
       body: SizedBox(
         width: double.maxFinite,
@@ -78,8 +78,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               enabled: true,
               (ui.Image image, size, canvas) {
                 shader.setFloat(0, time);
-                shader.setFloat(1, size.width * 3);
-                shader.setFloat(2, size.height * 3);
+                shader.setFloat(1, mediaSize.width);
+                shader.setFloat(2, mediaSize.height);
                 shader.setImageSampler(0, image);
                 canvas.drawPaint(Paint()..shader = shader);
               },
@@ -96,9 +96,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    radius: 300,
+                    radius: mediaSize.width / 3,
                     backgroundColor: Colors.blueAccent,
-                    foregroundImage: NetworkImage(
+                    foregroundImage: const NetworkImage(
                         'https://i.pinimg.com/564x/c7/4c/66/c74c665ea9bb0c7cdc5dc67f7711e3c2.jpg'),
                   ),
                   const Text(
@@ -108,16 +108,16 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         fontSize: 30,
                         color: Colors.white),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.white.withOpacity(0.3)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: const Text(
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
                         'Flutter Developer',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -126,7 +126,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Padding(
