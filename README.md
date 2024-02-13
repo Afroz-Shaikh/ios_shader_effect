@@ -1,6 +1,8 @@
 # shader_exp
 
-A new Flutter project.
+Experiment to replicate iOS inspired shader effect 
+
+<p align='center'><img src="https://github.com/Afroz-Shaikh/ios_shader_effect/blob/main/assets/thumnail.gif" alt="animations gif" height=140></p>
 
 ## Getting Started
 
