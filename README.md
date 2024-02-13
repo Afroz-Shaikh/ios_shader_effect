@@ -2,7 +2,7 @@
 
 Experiment to replicate iOS inspired shader effect 
 
-<p align='center'><img src="https://github.com/Afroz-Shaikh/ios_shader_effect/blob/main/assets/thumnail.gif" alt="animations gif" height=140></p>
+<p align='center'><img src="https://github.com/Afroz-Shaikh/ios_shader_effect/blob/main/assets/thumnail.gif" alt="animations gif"></p>
 
 ## Getting Started
 
